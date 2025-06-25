@@ -57,22 +57,28 @@ Instruction files (e.g., stake.rs): Contain #[derive(Accounts)] and handler logi
 Manages token transfers and burns, serving as the foundation for all token-related operations in VeraLux.
 
 **lib.rs:** Program ID and entrypoint.
-constants.rs: Token decimals, mint address.
-errors.rs: InsufficientBalance, Unauthorized.
+
+**constants.rs:** Token decimals, mint address.
+
+**errors.rs:** InsufficientBalance, Unauthorized.
+
 **state/token.rs:** Token account states (e.g., user balances).
+
 **instructions/transfer.rs:** Handles transfers with tax logic.
+
 **instructions/burn.rs:** Handles token burning.
+
 **events.rs:** TransferEvent, BurnEvent.
+
 **utils.rs:** SPL token CPI helpers.
 
-**Core Managment**
-State Structures: Tracks user token balances and metadata.
-Instruction Handlers: transfer (includes tax CPI to Treasury Management), burn.
-Events: Logs transfers and burns for frontend integration.
+#### **Core Managment**
+**State Structures:** Tracks user token balances and metadata.
 
-Utility Functions: SPL token CPI wrappers.
-
-Interactions: Called by Staking, Treasury Management, Vesting, and Migration for token operations.
+**Instruction Handlers:** transfer (includes tax CPI to Treasury Management), burn.
+**Events:** Logs transfers and burns for frontend integration.
+**Utility Functions:** SPL token CPI wrappers.
+**Interactions:** Called by Staking, Treasury Management, Vesting, and Migration for token operations.
 
 2. Staking
 Role: Manages staking, unstaking, and reward distribution for LUX token holders.
