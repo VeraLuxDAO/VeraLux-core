@@ -59,15 +59,10 @@ Manages token transfers and burns, serving as the foundation for all token-relat
 **lib.rs:** Program ID and entrypoint.
 constants.rs: Token decimals, mint address.
 errors.rs: InsufficientBalance, Unauthorized.
-
 **state/token.rs:** Token account states (e.g., user balances).
-
 **instructions/transfer.rs:** Handles transfers with tax logic.
-
 **instructions/burn.rs:** Handles token burning.
-
 **events.rs:** TransferEvent, BurnEvent.
-
 **utils.rs:** SPL token CPI helpers.
 
 **Core Managment**
