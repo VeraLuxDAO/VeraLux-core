@@ -1,19 +1,25 @@
 **Detailed Program Structure**
+
 Each program follows a consistent structure optimized for Solana development, leveraging the Anchor framework where applicable. Below, I’ll break down the purpose of each file and directory within a program, followed by specifics for each VeraLux contract.
 
 **General Structure for Each Program**
 
+
 **lib.rs:** 
+
 Contains the declare_id! macro to define the program’s unique ID.
 Defines the program entrypoint, routing instructions to their respective handlers.
 
 **constants.rs:** 
+
 Stores program-specific constants (e.g., fees, PDA seeds, configuration values).
 
 **errors.rs:** 
+
 Defines custom error codes using Anchor’s #[error_code] attribute for clear error handling.
 
 **state/:** 
+
 **mod.rs:** Re-exports all state structs for easy access.
 Account files (e.g., user.rs, pool.rs): Define on-chain data structures using Anchor’s #[account] attribute.
 
