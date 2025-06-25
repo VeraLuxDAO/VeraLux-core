@@ -1,5 +1,6 @@
-**Detailed Program Structure**
-
+# **Detailed Program Structure**
+## **Detailed Program Structure**
+### **Detailed Program Structure**
 
 Each program follows a consistent structure optimized for Solana development, leveraging the Anchor framework where applicable. Below, I’ll break down the purpose of each file and directory within a program, followed by specifics for each VeraLux contract.
 
