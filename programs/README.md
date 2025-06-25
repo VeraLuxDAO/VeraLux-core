@@ -4,14 +4,14 @@
 #### Introduction 
 #### Program Architecture Overview 
 #### Detailed Program Breakdown 
-  #### 1. Token Management 
-  #### 2. Staking 
-  #### 3. Governance 
-  #### 4. Airdrops 
-  #### 5. Treasury Management 
-  #### 6. Vesting 
-  #### 7. Migration
-#### Key Interconnections (#key-interconnections)
+  #### - 1. Token Management 
+  #### - 2. Staking 
+  #### - 3. Governance 
+  #### - 4. Airdrops 
+  #### - 5. Treasury Management 
+  #### - 6. Vesting 
+  #### - 7. Migration
+#### Key Interconnections 
 
 
 ## **Introduction**
