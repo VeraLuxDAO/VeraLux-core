@@ -299,13 +299,16 @@ To ensure the VeraLux ecosystem operates efficiently:
 **This structure provides an optimal foundation for VeraLux, balancing scalability, maintainability, and security while meeting the ecosystem’s multi-contract needs. Each program is self-contained yet interconnected, supporting VeraLux’s vision of a robust, community-driven platform.**
 
 
-VeraLux Program Structure: Detailed Technical Overview
-Table of Contents
+**VeraLux Program Structure: Detailed Technical Overview**
+
+**Table of Contents**
+
 Introduction (#introduction)
 
 Program Architecture Overview (#program-architecture-overview)
 
 Detailed Program Breakdown (#detailed-program-breakdown)
+
 1. Token Management (#1-token-management)
 
 2. Staking (#2-staking)
@@ -322,31 +325,37 @@ Detailed Program Breakdown (#detailed-program-breakdown)
 
 Key Interconnections (#key-interconnections)
 
-Introduction
-The VeraLux ecosystem is a decentralized Web3 platform built on Solana, powered by the LUX token. It consists of seven core programs: Token Management, Staking, Governance, Airdrops, Treasury Management, Vesting, and Migration. This README.md provides a detailed technical overview of each program, including their roles, key components, and interactions, ensuring developers have a clear understanding of the architecture and can easily navigate to specific details.
-Program Architecture Overview
+
+**Introduction**
+The VeraLux ecosystem is a decentralized Web3 platform built on Solana, powered by the LUX token. It consists of seven core programs: **Token Management, Staking, Governance, Airdrops, Treasury Management, Vesting, and Migration**. This README.md provides a detailed technical overview of each program, including their roles, key components, and interactions, ensuring developers have a clear understanding of the architecture and can easily navigate to specific details.
+
+
+**Program Architecture Overview**
 Each VeraLux program is built using the Anchor framework for Solana, following a modular structure that balances independence and interoperability. This allows developers to work on individual programs while ensuring seamless integration across the ecosystem. Below is the typical file structure for each program:
-lib.rs: Defines the program ID and entrypoint, routing instructions to handlers.
 
-constants.rs: Stores program-specific constants (e.g., fees, PDA seeds).
+**lib.rs:** Defines the program ID and entrypoint, routing instructions to handlers.
 
-errors.rs: Custom error codes (e.g., #[error_code] in Anchor).
+**constants.rs:** Stores program-specific constants (e.g., fees, PDA seeds).
 
-state/  
-mod.rs: Re-exports state structs.  
+**errors.rs:** Custom error codes (e.g., #[error_code] in Anchor).
+
+**state/**  
+**mod.rs:** Re-exports state structs.  
 
 Account files (e.g., user.rs): Define on-chain data structures with #[account].
 
-instructions/  
-mod.rs: Re-exports instruction handlers.  
+**instructions/**  
+**mod.rs:** Re-exports instruction handlers.  
 
 Instruction files (e.g., stake.rs): Contain #[derive(Accounts)] and handler logic.
 
-events.rs: Defines #[event] structs for logging actions.
+**events.rs:** Defines #[event] structs for logging actions.
 
-utils.rs: Includes utility functions, CPI calls, and PDA derivations.
+**utils.rs:** Includes utility functions, CPI calls, and PDA derivations.
 
 This structure ensures consistency, making it easy for developers to locate specific components when revisiting the codebase.
+
+
 Detailed Program Breakdown
 1. Token Management
 Role: Manages token transfers and burns, serving as the foundation for all token-related operations in VeraLux.
