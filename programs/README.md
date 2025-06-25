@@ -54,7 +54,7 @@ Instruction files (e.g., stake.rs): Contain #[derive(Accounts)] and handler logi
 ## **Detailed Program Breakdown**
 
 ### 1. **Token Management**
-Manages token transfers and burns, serving as the foundation for all token-related operations in VeraLux.
+**Manages token transfers and burns, serving as the foundation for all token-related operations in VeraLux.**
 
 
 **lib.rs:** Program ID and entrypoint.
@@ -84,7 +84,7 @@ Manages token transfers and burns, serving as the foundation for all token-relat
 
 
 ### **2. Staking**
-Manages staking, unstaking, and reward distribution for LUX token holders.
+**Manages staking, unstaking, and reward distribution for LUX token holders.**
 
 
 **lib.rs:** Program ID and entrypoint.
@@ -123,8 +123,7 @@ Manages staking, unstaking, and reward distribution for LUX token holders.
 
 
 ### 3. Governance
-
-Facilitates community-driven proposals and voting.
+**Facilitates community-driven proposals and voting.**
 
 **lib.rs:** Program ID and entrypoint.
 
@@ -132,73 +131,67 @@ Facilitates community-driven proposals and voting.
 
 **errors.rs:** ProposalExpired, InsufficientVotingPower.
 
-state/proposal.rs: Proposal data (description, deadline, actions).
+**state/proposal.rs:** Proposal data (description, deadline, actions).
 
-state/vote.rs: User vote records.
+**state/vote.rs:** User vote records.
 
-instructions/create_proposal.rs: Creates proposals.
+**instructions/create_proposal.rs:** Creates proposals.
 
-instructions/vote.rs: Records votes.
+**instructions/vote.rs:** Records votes.
 
-instructions/execute_proposal.rs: Executes approved proposals.
+**instructions/execute_proposal.rs:** Executes approved proposals.
 
-events.rs: ProposalCreatedEvent, VoteCastEvent, ProposalExecutedEvent.
+**events.rs:** ProposalCreatedEvent, VoteCastEvent, ProposalExecutedEvent.
 
-utils.rs: CPI to Staking, proposal execution helpers.
+**utils.rs:** CPI to Staking, proposal execution helpers.
 
-State Structures: Proposals and vote tallies.
+#### Core Management
+##### State Structures: _Proposals and vote tallies._
+##### Instruction Handlers: _create_proposal, vote, execute_proposal._
+##### Events: _Logs proposal lifecycle events._
+##### Utility Functions: _Queries Staking for voting power, executes actions via CPI._
+##### Interactions: Queries Staking for voting power, updates Treasury Management or Vesting via proposals.
 
-Instruction Handlers: create_proposal, vote, execute_proposal.
+### 4. Airdrops
+**Distributes tokens to eligible users based on staking activity.**
 
-Events: Logs proposal lifecycle events.
+**lib.rs:** Program ID and entrypoint.
 
-Utility Functions: Queries Staking for voting power, executes actions via CPI.
+**constants.rs:** Airdrop campaign parameters.
 
-Interactions: Queries Staking for voting power, updates Treasury Management or Vesting via proposals.
+**errors.rs:** IneligibleUser, CampaignEnded.
 
-4. Airdrops
-Role: Distributes tokens to eligible users based on staking activity.
-Key Files:
-lib.rs: Program ID and entrypoint.
+**state/campaign.rs:** Campaign data (eligibility, total amount).
 
-constants.rs: Airdrop campaign parameters.
+**instructions/create_campaign.rs:** Sets up airdrops.
 
-errors.rs: IneligibleUser, CampaignEnded.
+**instructions/distribute_airdrop.rs:** Distributes tokens.
 
-state/campaign.rs: Campaign data (eligibility, total amount).
+**events.rs:** AirdropDistributedEvent.
 
-instructions/create_campaign.rs: Sets up airdrops.
+**utils.rs:** CPI to Staking and Treasury Management.
 
-instructions/distribute_airdrop.rs: Distributes tokens.
+#### Core Management
+##### State Structures: _Campaign details and distribution status._
+##### Instruction Handlers: **create_campaign, distribute_airdrop.**
+##### Events: _Logs distribution events._
+##### Utility Functions: _Eligibility checks, CPI for funding._
+##### Interactions: _Queries Staking for eligibility, requests funds from Treasury Management._
 
-events.rs: AirdropDistributedEvent.
+### 5. Treasury Management
+**Collects taxes and distributes funds to staking, airdrops, and vesting.**
 
-utils.rs: CPI to Staking and Treasury Management.
+**lib.rs:** _Program ID and entrypoint._
 
-State Structures: Campaign details and distribution status.
+**constants.rs:** _Tax rates, pool addresses._
 
-Instruction Handlers: create_campaign, distribute_airdrop.
+**errors.rs:** _InsufficientFunds, UnauthorizedWithdrawal._
 
-Events: Logs distribution events.
+**state/pool.rs:** _Treasury pool data (rewards, liquidity)._
 
-Utility Functions: Eligibility checks, CPI for funding.
+**state/tax_config.rs:** _Tax settings._
 
-Interactions: Queries Staking for eligibility, requests funds from Treasury Management.
-
-5. Treasury Management
-Role: Collects taxes and distributes funds to staking, airdrops, and vesting.
-Key Files:
-lib.rs: Program ID and entrypoint.
-
-constants.rs: Tax rates, pool addresses.
-
-errors.rs: InsufficientFunds, UnauthorizedWithdrawal.
-
-state/pool.rs: Treasury pool data (rewards, liquidity).
-
-state/tax_config.rs: Tax settings.
-
-instructions/distribute_tax.rs: Allocates taxes.
+**instructions/distribute_tax.rs:** _Allocates taxes._
 
 instructions/withdraw.rs: Funds other programs.
 
