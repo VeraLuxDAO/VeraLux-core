@@ -235,7 +235,7 @@ Manages token release schedules for beneficiaries.
 ##### Events: _Logs token claims._
 ##### Utility Functions: _Token release CPIs._
 ##### **Interactions:** _Requests tokens from Treasury Management._
-
+------------------------------------------------------------------------------------------------------------------------
 ### 7. Migration
 Handles token migration from old to new contracts.
 
@@ -261,7 +261,7 @@ events.rs: MigrationInitiatedEvent, MigrationCompletedEvent.
 ##### Events: _Logs migration milestones._
 ##### Utility Functions: _Token burn/transfer CPIs._
 ##### Interactions: _Uses Token Management for token operations._
-
+-------------------------------------------------------------------------------------------------------------------
 ## Key Interconnections
 
 The VeraLux programs interact through: 
