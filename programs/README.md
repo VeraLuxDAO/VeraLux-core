@@ -33,14 +33,21 @@ The VeraLux ecosystem is a decentralized Web3 platform built on Solana, powered 
 Each VeraLux program is built using the Anchor framework for Solana, following a modular structure that balances independence and interoperability. This allows developers to work on individual programs while ensuring seamless integration across the ecosystem. Below is the typical file structure for each program:
 
 **lib.rs:** Defines the program ID and entrypoint, routing instructions to handlers.
+
 **constants.rs:** Stores program-specific constants (e.g., fees, PDA seeds).
+
 **errors.rs:** Custom error codes (e.g., #[error_code] in Anchor).
+
 **state/mod.rs:** Re-exports state structs.  
 Account files (e.g., user.rs): Define on-chain data structures with #[account].
+
 **instructions/mod.rs:** Re-exports instruction handlers.  
 Instruction files (e.g., stake.rs): Contain #[derive(Accounts)] and handler logic.
+
 **events.rs:** Defines #[event] structs for logging actions.
+
 **utils.rs:** Includes utility functions, CPI calls, and PDA derivations.
+
 **This structure ensures consistency, making it easy for developers to locate specific components when revisiting the codebase.**
 
 
