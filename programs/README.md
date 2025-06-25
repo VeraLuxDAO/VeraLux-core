@@ -264,15 +264,15 @@ events.rs: MigrationInitiatedEvent, MigrationCompletedEvent.
 -------------------------------------------------------------------------------------------------------------------
 ## Key Interconnections
 
-The VeraLux programs interact through: 
+**The VeraLux programs interact through:**
 
-Cross-Program Invocations (CPIs): For state changes (e.g., Staking calls Token Management for transfers).
+**Cross-Program Invocations (CPIs):** For state changes (e.g., Staking calls Token Management for transfers).
 
-Data Queries: For read-only access (e.g., Governance queries Staking for voting power).
+**Data Queries:** For read-only access (e.g., Governance queries Staking for voting power).
 
-Events: For frontend updates (e.g., TransferEvent from Token Management).
+**Events:** For frontend updates (e.g., TransferEvent from Token Management).
 
-####**Examples:**
+#### **Examples:**
 
 **Token Management -- Treasury Management:** _Taxes flow from transfers to treasury._
 
