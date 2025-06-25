@@ -32,21 +32,21 @@ The VeraLux ecosystem is a decentralized Web3 platform built on Solana, powered 
 ## **Program Architecture Overview**
 Each VeraLux program is built using the Anchor framework for Solana, following a modular structure that balances independence and interoperability. This allows developers to work on individual programs while ensuring seamless integration across the ecosystem. Below is the typical file structure for each program:
 
-**lib.rs:** Defines the program ID and entrypoint, routing instructions to handlers.
+**lib.rs:**  _Defines the program ID and entrypoint, routing instructions to handlers._
 
-**constants.rs:** Stores program-specific constants (e.g., fees, PDA seeds).
+**constants.rs:** _Stores program-specific constants (e.g., fees, PDA seeds)._
 
-**errors.rs:** Custom error codes (e.g., #[error_code] in Anchor).
+**errors.rs:** _Custom error codes (e.g., #[error_code] in Anchor)._
 
-**state/mod.rs:** Re-exports state structs.  
+**state/mod.rs:** _Re-exports state structs._  
 Account files (e.g., user.rs): Define on-chain data structures with #[account].
 
-**instructions/mod.rs:** Re-exports instruction handlers.  
+**instructions/mod.rs:** _Re-exports instruction handlers._  
 Instruction files (e.g., stake.rs): Contain #[derive(Accounts)] and handler logic.
 
-**events.rs:** Defines #[event] structs for logging actions.
+**events.rs:** _Defines #[event] structs for logging actions._
 
-**utils.rs:** Includes utility functions, CPI calls, and PDA derivations.
+**utils.rs:** _Includes utility functions, CPI calls, and PDA derivations._
 
 **This structure ensures consistency, making it easy for developers to locate specific components when revisiting the codebase.**
 
@@ -57,21 +57,21 @@ Instruction files (e.g., stake.rs): Contain #[derive(Accounts)] and handler logi
 **Manages token transfers and burns, serving as the foundation for all token-related operations in VeraLux.**
 
 
-**lib.rs:** Program ID and entrypoint.
+**lib.rs:** _Program ID and entrypoint._
 
-**constants.rs:** Token decimals, mint address.
+**constants.rs:** _Token decimals, mint address._
 
-**errors.rs:** InsufficientBalance, Unauthorized.
+**errors.rs:** _InsufficientBalance, Unauthorized._
 
-**state/token.rs:** Token account states (e.g., user balances).
+**state/token.rs:** _Token account states (e.g., user balances)._
 
-**instructions/transfer.rs:** Handles transfers with tax logic.
+**instructions/transfer.rs:** _Handles transfers with tax logic._
 
-**instructions/burn.rs:** Handles token burning.
+**instructions/burn.rs:** _Handles token burning._
 
-**events.rs:** TransferEvent, BurnEvent.
+**events.rs:** _TransferEvent, BurnEvent._
 
-**utils.rs:** SPL token CPI helpers.
+**utils.rs:** _SPL token CPI helpers._
 
 
 #### Core Managment
@@ -87,27 +87,27 @@ Instruction files (e.g., stake.rs): Contain #[derive(Accounts)] and handler logi
 **Manages staking, unstaking, and reward distribution for LUX token holders.**
 
 
-**lib.rs:** Program ID and entrypoint.
+**lib.rs:** _Program ID and entrypoint._
 
-**constants.rs:** Staking tiers, reward rates, lock periods.
+**constants.rs:** _Staking tiers, reward rates, lock periods._
 
-**errors.rs:** InvalidTier, LockPeriodNotElapsed.
+**errors.rs:** _InvalidTier, LockPeriodNotElapsed._
 
-**state/user.rs:** User staking data (amount, tier, lock period).
+**state/user.rs:** _User staking data (amount, tier, lock period)._
 
-**state/pool.rs:** Staking pool data (total staked, reward rates).
+**state/pool.rs:** _Staking pool data (total staked, reward rates)._
 
-**instructions/stake.rs:** Stakes tokens.
+**instructions/stake.rs:** _Stakes tokens._
 
-**instructions/unstake.rs:** Unstakes after lock period.
+**instructions/unstake.rs:** _Unstakes after lock period._
 
-**instructions/claim_rewards.rs:** Distributes rewards.
+**instructions/claim_rewards.rs:** _Distributes rewards._
 
-**instructions/upgrade_tier.rs:** Upgrades staking tier.
+**instructions/upgrade_tier.rs:** _Upgrades staking tier._
 
-**events.rs:** StakeEvent, UnstakeEvent, RewardClaimedEvent.
+**events.rs:** _StakeEvent, UnstakeEvent, RewardClaimedEvent._
 
-**utils.rs:** Voting power calculations, CPI helpers.
+**utils.rs:** _Voting power calculations, CPI helpers._
 
 #### Core Managment
 ##### State Structures: _User stakes and pool aggregates._
