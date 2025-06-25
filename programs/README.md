@@ -1,28 +1,17 @@
 # **VeraLux Program Structure: Detailed Technical Overview**
 
 ## **Table of Contents**
-
-Introduction (#introduction)
-
-Program Architecture Overview (#program-architecture-overview)
-
-Detailed Program Breakdown (#detailed-program-breakdown)
-
-  1. Token Management (#1-token-management)
-
-  2. Staking (#2-staking)
-
-  3. Governance (#3-governance)
-
-  4. Airdrops (#4-airdrops)
-
-  5. Treasury Management (#5-treasury-management)
-
-  6. Vesting (#6-vesting)
-
-  7. Migration (#7-migration)
-
-Key Interconnections (#key-interconnections)
+#### Introduction 
+#### Program Architecture Overview 
+#### Detailed Program Breakdown 
+  #### 1. Token Management 
+  #### 2. Staking 
+  #### 3. Governance 
+  #### 4. Airdrops 
+  #### 5. Treasury Management 
+  #### 6. Vesting 
+  #### 7. Migration
+#### Key Interconnections (#key-interconnections)
 
 
 ## **Introduction**
