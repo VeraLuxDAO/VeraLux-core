@@ -74,9 +74,9 @@ Manages token transfers and burns, serving as the foundation for all token-relat
 **utils.rs:** SPL token CPI helpers.
 
 
-#### *Core Managment*
-##### State Structures: _Tracks user token balances and metadata._
-##### Instruction Handlers: _transfer (includes tax CPI to Treasury Management), burn._
+#### Core Managment
+##### State Structures: *Tracks user token balances and metadata.*
+##### Instruction Handlers: *transfer (includes tax CPI to Treasury Management), burn.*
 ##### Events: _Logs transfers and burns for frontend integration._
 ##### Utility Functions: _SPL token CPI wrappers._
 ##### Interactions: _Called by Staking, Treasury Management, Vesting, and Migration for token operations._
@@ -122,14 +122,14 @@ Manages staking, unstaking, and reward distribution for LUX token holders.
 
 
 
-3. Governance
-Role: Facilitates community-driven proposals and voting.
-Key Files:
-lib.rs: Program ID and entrypoint.
+### 3. Governance
+Facilitates community-driven proposals and voting.
 
-constants.rs: Quorum threshold, voting period duration.
+**lib.rs:** Program ID and entrypoint.
 
-errors.rs: ProposalExpired, InsufficientVotingPower.
+**constants.rs:** Quorum threshold, voting period duration.
+
+**errors.rs:** ProposalExpired, InsufficientVotingPower.
 
 state/proposal.rs: Proposal data (description, deadline, actions).
 
