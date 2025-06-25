@@ -211,7 +211,7 @@ Instruction files (e.g., stake.rs): Contain #[derive(Accounts)] and handler logi
 -------------------------------------------------------------------------------------------------------------
 
 ### 6. Vesting
-Manages token release schedules for beneficiaries.
+**Manages token release schedules for beneficiaries.**
 
 **lib.rs:** _Program ID and entrypoint._
 
@@ -237,7 +237,7 @@ Manages token release schedules for beneficiaries.
 ##### **Interactions:** _Requests tokens from Treasury Management._
 ------------------------------------------------------------------------------------------------------------------------
 ### 7. Migration
-Handles token migration from old to new contracts.
+**Handles token migration from old to new contracts.**
 
 **lib.rs:** Program ID and entrypoint.
 
@@ -251,7 +251,7 @@ Handles token migration from old to new contracts.
 
 **instructions/complete_migration.rs:** Completes migration.
 
-events.rs: MigrationInitiatedEvent, MigrationCompletedEvent.
+**events.rs:** MigrationInitiatedEvent, MigrationCompletedEvent.
 
 **utils.rs:** CPI to Token Management.
 
