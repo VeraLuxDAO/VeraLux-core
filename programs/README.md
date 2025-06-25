@@ -8,19 +8,19 @@ Program Architecture Overview (#program-architecture-overview)
 
 Detailed Program Breakdown (#detailed-program-breakdown)
 
-1. Token Management (#1-token-management)
+  1. Token Management (#1-token-management)
 
-2. Staking (#2-staking)
+  2. Staking (#2-staking)
 
-3. Governance (#3-governance)
+  3. Governance (#3-governance)
 
-4. Airdrops (#4-airdrops)
+  4. Airdrops (#4-airdrops)
 
-5. Treasury Management (#5-treasury-management)
+  5. Treasury Management (#5-treasury-management)
 
-6. Vesting (#6-vesting)
+  6. Vesting (#6-vesting)
 
-7. Migration (#7-migration)
+  7. Migration (#7-migration)
 
 Key Interconnections (#key-interconnections)
 
@@ -33,52 +33,39 @@ The VeraLux ecosystem is a decentralized Web3 platform built on Solana, powered 
 Each VeraLux program is built using the Anchor framework for Solana, following a modular structure that balances independence and interoperability. This allows developers to work on individual programs while ensuring seamless integration across the ecosystem. Below is the typical file structure for each program:
 
 **lib.rs:** Defines the program ID and entrypoint, routing instructions to handlers.
-
 **constants.rs:** Stores program-specific constants (e.g., fees, PDA seeds).
-
 **errors.rs:** Custom error codes (e.g., #[error_code] in Anchor).
-
-**state/**  
-**mod.rs:** Re-exports state structs.  
-
+**state/mod.rs:** Re-exports state structs.  
 Account files (e.g., user.rs): Define on-chain data structures with #[account].
-
-**instructions/**  
-**mod.rs:** Re-exports instruction handlers.  
-
+**instructions/mod.rs:** Re-exports instruction handlers.  
 Instruction files (e.g., stake.rs): Contain #[derive(Accounts)] and handler logic.
-
 **events.rs:** Defines #[event] structs for logging actions.
-
 **utils.rs:** Includes utility functions, CPI calls, and PDA derivations.
+**This structure ensures consistency, making it easy for developers to locate specific components when revisiting the codebase.**
 
-This structure ensures consistency, making it easy for developers to locate specific components when revisiting the codebase.
 
+## **Detailed Program Breakdown**
 
-Detailed Program Breakdown
-1. Token Management
-Role: Manages token transfers and burns, serving as the foundation for all token-related operations in VeraLux.
-Key Files:
-lib.rs: Program ID and entrypoint.
+### 1. **Token Management**
+Manages token transfers and burns, serving as the foundation for all token-related operations in VeraLux.
 
+**lib.rs:** Program ID and entrypoint.
 constants.rs: Token decimals, mint address.
-
 errors.rs: InsufficientBalance, Unauthorized.
 
-state/token.rs: Token account states (e.g., user balances).
+**state/token.rs:** Token account states (e.g., user balances).
 
-instructions/transfer.rs: Handles transfers with tax logic.
+**instructions/transfer.rs:** Handles transfers with tax logic.
 
-instructions/burn.rs: Handles token burning.
+**instructions/burn.rs:** Handles token burning.
 
-events.rs: TransferEvent, BurnEvent.
+**events.rs:** TransferEvent, BurnEvent.
 
-utils.rs: SPL token CPI helpers.
+**utils.rs:** SPL token CPI helpers.
 
+**Core Managment**
 State Structures: Tracks user token balances and metadata.
-
 Instruction Handlers: transfer (includes tax CPI to Treasury Management), burn.
-
 Events: Logs transfers and burns for frontend integration.
 
 Utility Functions: SPL token CPI wrappers.
