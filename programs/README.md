@@ -123,6 +123,7 @@ Manages staking, unstaking, and reward distribution for LUX token holders.
 
 
 ### 3. Governance
+
 Facilitates community-driven proposals and voting.
 
 **lib.rs:** Program ID and entrypoint.
