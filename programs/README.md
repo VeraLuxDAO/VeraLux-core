@@ -75,8 +75,7 @@ Manages token transfers and burns, serving as the foundation for all token-relat
 
 
 #### *Core Managment*
-##### **State Structures:** 
-###### Tracks user token balances and metadata.
+##### **State Structures:** ###### Tracks user token balances and metadata.
 ##### **Instruction Handlers:** 
 transfer (includes tax CPI to Treasury Management), burn.
 ##### **Events:** 
