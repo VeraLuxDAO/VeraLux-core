@@ -81,7 +81,7 @@ Instruction files (e.g., stake.rs): Contain #[derive(Accounts)] and handler logi
 ##### Utility Functions: _SPL token CPI wrappers._
 ##### Interactions: _Called by Staking, Treasury Management, Vesting, and Migration for token operations._
 
-
+--------------------------------------------------------------------------------------------------------------------
 
 ### **2. Staking**
 **Manages staking, unstaking, and reward distribution for LUX token holders.**
@@ -120,30 +120,30 @@ Instruction files (e.g., stake.rs): Contain #[derive(Accounts)] and handler logi
 
 ##### Interactions: _Transfers tokens via Token Management, requests rewards from Treasury Management, provides voting power to Governance._
 
-
+--------------------------------------------------------------------------------------------------------------------------
 
 ### 3. Governance
 **Facilitates community-driven proposals and voting.**
 
-**lib.rs:** Program ID and entrypoint.
+**lib.rs:** _Program ID and entrypoint._
 
-**constants.rs:** Quorum threshold, voting period duration.
+**constants.rs:** _Quorum threshold, voting period duration._
 
-**errors.rs:** ProposalExpired, InsufficientVotingPower.
+**errors.rs:** _ProposalExpired, InsufficientVotingPower._
 
-**state/proposal.rs:** Proposal data (description, deadline, actions).
+**state/proposal.rs:** _Proposal data (description, deadline, actions)._
 
-**state/vote.rs:** User vote records.
+**state/vote.rs:** _User vote records._
 
-**instructions/create_proposal.rs:** Creates proposals.
+**instructions/create_proposal.rs:** _Creates proposals._
 
-**instructions/vote.rs:** Records votes.
+**instructions/vote.rs:** _Records votes._
 
-**instructions/execute_proposal.rs:** Executes approved proposals.
+**instructions/execute_proposal.rs:** _Executes approved proposals._
 
-**events.rs:** ProposalCreatedEvent, VoteCastEvent, ProposalExecutedEvent.
+**events.rs:** _ProposalCreatedEvent, VoteCastEvent, ProposalExecutedEvent._
 
-**utils.rs:** CPI to Staking, proposal execution helpers.
+**utils.rs:** _CPI to Staking, proposal execution helpers._
 
 #### Core Management
 ##### State Structures: _Proposals and vote tallies._
@@ -151,7 +151,7 @@ Instruction files (e.g., stake.rs): Contain #[derive(Accounts)] and handler logi
 ##### Events: _Logs proposal lifecycle events._
 ##### Utility Functions: _Queries Staking for voting power, executes actions via CPI._
 ##### Interactions: Queries Staking for voting power, updates Treasury Management or Vesting via proposals.
-
+---------------------------------------------------------------------------------------------------------------
 ### 4. Airdrops
 **Distributes tokens to eligible users based on staking activity.**
 
@@ -177,7 +177,7 @@ Instruction files (e.g., stake.rs): Contain #[derive(Accounts)] and handler logi
 ##### Events: _Logs distribution events._
 ##### Utility Functions: _Eligibility checks, CPI for funding._
 ##### Interactions: _Queries Staking for eligibility, requests funds from Treasury Management._
-
+------------------------------------------------------------------------------------------------------------------------
 ### 5. Treasury Management
 **Collects taxes and distributes funds to staking, airdrops, and vesting.**
 
@@ -193,98 +193,94 @@ Instruction files (e.g., stake.rs): Contain #[derive(Accounts)] and handler logi
 
 **instructions/distribute_tax.rs:** _Allocates taxes._
 
-instructions/withdraw.rs: Funds other programs.
+**instructions/withdraw.rs:** _Funds other programs._
 
-instructions/update_tax_config.rs: Updates tax settings.
+**instructions/update_tax_config.rs:** _Updates tax settings._
 
-events.rs: TaxDistributedEvent, WithdrawalEvent.
+**events.rs:** _TaxDistributedEvent, WithdrawalEvent._
 
-utils.rs: CPI to Token Management.
+**utils.rs:** _CPI to Token Management._
 
-State Structures: Treasury pools and tax configurations.
+#### Core Management
+##### State Structures: _Treasury pools and tax configurations._
+##### Instruction Handlers: _distribute_tax, withdraw, update_tax_config._
+##### Events: _Logs tax and withdrawal actions._
+##### Utility Functions: _Token transfer CPIs._
+##### Interactions: _Receives taxes from Token Management, funds Staking, Airdrops, and Vesting._
 
-Instruction Handlers: distribute_tax, withdraw, update_tax_config.
+-------------------------------------------------------------------------------------------------------------
 
-Events: Logs tax and withdrawal actions.
+### 6. Vesting
+Manages token release schedules for beneficiaries.
 
-Utility Functions: Token transfer CPIs.
+**lib.rs:** _Program ID and entrypoint._
 
-Interactions: Receives taxes from Token Management, funds Staking, Airdrops, and Vesting.
+**constants.rs:** _Vesting cliffs, durations._
 
-6. Vesting
-Role: Manages token release schedules for beneficiaries.
-Key Files:
-lib.rs: Program ID and entrypoint.
+**errors.rs:** _VestingNotMatured, InvalidBeneficiary._
 
-constants.rs: Vesting cliffs, durations.
+**state/vesting_schedule.rs:** _Vesting data (amount, schedule)._
 
-errors.rs: VestingNotMatured, InvalidBeneficiary.
+**instructions/claim_vested_tokens.rs:** _Releases tokens._
 
-state/vesting_schedule.rs: Vesting data (amount, schedule).
+**instructions/update_vesting_schedule.rs:** _Updates schedules._
 
-instructions/claim_vested_tokens.rs: Releases tokens.
+**events.rs:** _VestedTokensClaimedEvent._
 
-instructions/update_vesting_schedule.rs: Updates schedules.
+**utils.rs:** _CPI to Treasury Management._
 
-events.rs: VestedTokensClaimedEvent.
+#### Core Management
+##### State Structures: _Vesting schedules and claim status._
+##### Instruction Handlers: _claim_vested_tokens, update_vesting_schedule._
+##### Events: _Logs token claims._
+##### Utility Functions: _Token release CPIs._
+##### **Interactions:** _Requests tokens from Treasury Management._
 
-utils.rs: CPI to Treasury Management.
+### 7. Migration
+Handles token migration from old to new contracts.
 
-State Structures: Vesting schedules and claim status.
+**lib.rs:** Program ID and entrypoint.
 
-Instruction Handlers: claim_vested_tokens, update_vesting_schedule.
+**constants.rs:** Old and new token addresses.
 
-Events: Logs token claims.
+**errors.rs:** MigrationNotInitiated, InvalidMigrationAmount.
 
-Utility Functions: Token release CPIs.
+**state/migration.rs:** Migration state (status, user records).
 
-Interactions: Requests tokens from Treasury Management.
+**instructions/initiate_migration.rs:** Starts migration.
 
-7. Migration
-Role: Handles token migration from old to new contracts.
-Key Files:
-lib.rs: Program ID and entrypoint.
-
-constants.rs: Old and new token addresses.
-
-errors.rs: MigrationNotInitiated, InvalidMigrationAmount.
-
-state/migration.rs: Migration state (status, user records).
-
-instructions/initiate_migration.rs: Starts migration.
-
-instructions/complete_migration.rs: Completes migration.
+**instructions/complete_migration.rs:** Completes migration.
 
 events.rs: MigrationInitiatedEvent, MigrationCompletedEvent.
 
-utils.rs: CPI to Token Management.
+**utils.rs:** CPI to Token Management.
 
-State Structures: Migration progress and user data.
+#### Core Management
+##### State Structures: _Migration progress and user data._
+##### Instruction Handlers: _initiate_migration, complete_migration._
+##### Events: _Logs migration milestones._
+##### Utility Functions: _Token burn/transfer CPIs._
+##### Interactions: _Uses Token Management for token operations._
 
-Instruction Handlers: initiate_migration, complete_migration.
+## Key Interconnections
 
-Events: Logs migration milestones.
+The VeraLux programs interact through: 
 
-Utility Functions: Token burn/transfer CPIs.
-
-Interactions: Uses Token Management for token operations.
-
-Key Interconnections
-The VeraLux programs interact through:
 Cross-Program Invocations (CPIs): For state changes (e.g., Staking calls Token Management for transfers).
 
 Data Queries: For read-only access (e.g., Governance queries Staking for voting power).
 
 Events: For frontend updates (e.g., TransferEvent from Token Management).
 
-Examples:
-Token Management  Treasury Management: Taxes flow from transfers to treasury.
+####**Examples:**
 
-Staking  Governance: Staking provides voting power for proposals.
+**Token Management -- Treasury Management:** _Taxes flow from transfers to treasury._
 
-Treasury Management  Others: Funds Staking rewards, Airdrops, and Vesting releases.
+**Staking -- Governance:** _Staking provides voting power for proposals._
 
-Migration  Token Management: Manages token burns and transfers during migration.
+**Treasury -- Management  Others:** _Funds Staking rewards, Airdrops, and Vesting releases._
+
+**Migration -- Token Management:** _Manages token burns and transfers during migration._
 
 
 
