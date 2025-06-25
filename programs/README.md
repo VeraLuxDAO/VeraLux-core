@@ -76,10 +76,10 @@ Manages token transfers and burns, serving as the foundation for all token-relat
 
 #### *Core Managment*
 ##### State Structures: _Tracks user token balances and metadata._
-##### Instruction Handlers: transfer (includes tax CPI to Treasury Management), burn.
-##### Events: Logs transfers and burns for frontend integration.
-##### Utility Functions: SPL token CPI wrappers.
-##### Interactions: Called by Staking, Treasury Management, Vesting, and Migration for token operations.
+##### Instruction Handlers: _transfer (includes tax CPI to Treasury Management), burn._
+##### Events: _Logs transfers and burns for frontend integration._
+##### Utility Functions: _SPL token CPI wrappers._
+##### Interactions: _Called by Staking, Treasury Management, Vesting, and Migration for token operations._
 
 
 ### **2. Staking**
@@ -92,23 +92,23 @@ Manages staking, unstaking, and reward distribution for LUX token holders.
 
 **errors.rs:** InvalidTier, LockPeriodNotElapsed.
 
-state/user.rs: User staking data (amount, tier, lock period).
+**state/user.rs:** User staking data (amount, tier, lock period).
 
-state/pool.rs: Staking pool data (total staked, reward rates).
+**state/pool.rs:** Staking pool data (total staked, reward rates).
 
-instructions/stake.rs: Stakes tokens.
+**instructions/stake.rs:** Stakes tokens.
 
-instructions/unstake.rs: Unstakes after lock period.
+**instructions/unstake.rs:** Unstakes after lock period.
 
-instructions/claim_rewards.rs: Distributes rewards.
+**instructions/claim_rewards.rs:** Distributes rewards.
 
-instructions/upgrade_tier.rs: Upgrades staking tier.
+**instructions/upgrade_tier.rs:** Upgrades staking tier.
 
 events.rs: StakeEvent, UnstakeEvent, RewardClaimedEvent.
 
-utils.rs: Voting power calculations, CPI helpers.
+**utils.rs:** Voting power calculations, CPI helpers.
 
-State Structures: User stakes and pool aggregates.
+****State Structures:**** User stakes and pool aggregates.
 
 Instruction Handlers: stake, unstake, claim_rewards, upgrade_tier.
 
