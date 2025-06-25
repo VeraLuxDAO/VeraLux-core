@@ -82,6 +82,7 @@ Manages token transfers and burns, serving as the foundation for all token-relat
 ##### Interactions: _Called by Staking, Treasury Management, Vesting, and Migration for token operations._
 
 
+
 ### **2. Staking**
 Manages staking, unstaking, and reward distribution for LUX token holders.
 
@@ -104,19 +105,22 @@ Manages staking, unstaking, and reward distribution for LUX token holders.
 
 **instructions/upgrade_tier.rs:** Upgrades staking tier.
 
-events.rs: StakeEvent, UnstakeEvent, RewardClaimedEvent.
+**events.rs:** StakeEvent, UnstakeEvent, RewardClaimedEvent.
 
 **utils.rs:** Voting power calculations, CPI helpers.
 
-****State Structures:**** User stakes and pool aggregates.
+#### Core Managment
+##### State Structures: _User stakes and pool aggregates._
 
-Instruction Handlers: stake, unstake, claim_rewards, upgrade_tier.
+##### Instruction Handlers: _stake, unstake, claim_rewards, upgrade_tier._
 
-Events: Tracks staking actions and rewards.
+##### Events: _Tracks staking actions and rewards._
 
-Utility Functions: Calculates voting power for Governance, CPI to Token Management.
+##### Utility Functions: **Calculates voting power for Governance, CPI to Token Management.**
 
-Interactions: Transfers tokens via Token Management, requests rewards from Treasury Management, provides voting power to Governance.
+##### Interactions: _Transfers tokens via Token Management, requests rewards from Treasury Management, provides voting power to Governance._
+
+
 
 3. Governance
 Role: Facilitates community-driven proposals and voting.
